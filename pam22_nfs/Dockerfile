@@ -9,6 +9,8 @@ RUN apt-get -y install procps iproute2 tree nmap vim less finger passwd libpam-p
 RUN mkdir /opt/docker
 WORKDIR /opt/docker
 COPY * /opt/docker/
+COPY common-session /etc/pam.d/
+COPY pam_mount.conf.xml /etc/security
 RUN chmod +x /opt/docker/startup.sh
 CMD /opt/docker/startup.sh
 
